@@ -20,4 +20,72 @@ jobs:
           docker push lorenzo1100/hello-world
         name: Build and push docker image
 
+      name: Node.js CI
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout code
+
+      - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "{{secrets.DOCKERHUB_USERNAME}}" --password stdin
+        name: Dockerhub Authentication
       
+      - run: | 
+          docker build . -t lorenzo1100/hello-world
+          docker push lorenzo1100/hello-world
+        name: Build and push docker imagename: Node.js CI
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout code
+
+      - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "{{secrets.DOCKERHUB_USERNAME}}" --password stdin
+        name: Dockerhub Authentication
+      
+      - run: | 
+          docker build . -t lorenzo1100/hello-world
+          docker push lorenzo1100/hello-world
+        name: Build and push docker imagename: Node.js CI
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout code
+
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD}}
+        name: Dockerhub Authentication
+      
+      - run: | 
+          docker build . -t lorenzo1100/hello-world
+          docker push lorenzo1100/hello-world
+        name: Build and push docker image
+
+
+
+      
+
