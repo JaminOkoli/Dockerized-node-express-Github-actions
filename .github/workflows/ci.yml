@@ -10,6 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: docker build . -t lorenzo1100/hello-world
+        name: Checkout code
+
       - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "{{secrets.DOCKERHUB_USERNAME}}" --password stdin
-      - run: docker push lorenzo1100/hello-world 
+        name: Dockerhub Authentication
+      
+      - run: | 
+          docker build . -t lorenzo1100/hello-world
+          docker push lorenzo1100/hello-world
+        name: Build and push docker image
+
+      
