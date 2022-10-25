@@ -1,9 +1,7 @@
-exports.home=function(req,res){
+export const home=function(req,res){
   res.render('home');
 }
 
-
-exports.login=function(req,res){ 
+export const login=function(req,res){ 
     res.render('login');
 }
-
