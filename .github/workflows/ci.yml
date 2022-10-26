@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  lint application:
+  lint_node_application:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
       - name: Lint
         run: npm run lint
 
-  build and push docker:
+  build_&_push_docker:
     runs-on: ubuntu-latest
 
     steps:
