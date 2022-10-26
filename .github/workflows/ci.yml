@@ -49,6 +49,6 @@ jobs:
       
       - name: Build and push docker image
         run: | 
-          docker build -t $DOCKERHUB_REGISTRY/$DOCKERHUB_REPOSITORY .
+          docker build -t Lorenzo/hello world .
           docker push $DOCKERHUB_REGISTRY/$DOCKERHUB_REPOSITORY
         
