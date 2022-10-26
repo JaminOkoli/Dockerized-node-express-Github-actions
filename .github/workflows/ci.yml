@@ -1,11 +1,11 @@
-name: Node.js CI
+name: Docker Buildd,Lint & Push CI
 
 on: 
   push:
     branches: [main]
 
 jobs:
-  lint:
+  lint Node.js app:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,26 +25,27 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          npm install eslint-plugin-react@latest --save-dev
-          npm install @typescript-eslint/eslint-plugin@latest --save-dev
         
       - name: Lint
         run: npm run lint
 
-  build:
+  build and push docker:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
 
-      - uses: docker/login-action@v2
+      - name: Dockerhub Authentication
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD}}
-        name: Dockerhub Authentication
+        
       
-      - run: | 
+      - name: Build and push docker image
+        run: | 
           docker build . -t lorenzo1100/hello-world
           docker push lorenzo1100/hello-world
-        name: Build and push docker image
+        
