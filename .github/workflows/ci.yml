@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
 
-env:
-    DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-    DOCKERHUB_REPOSITORY: hello-world
 jobs:
   lint_node_application:
     runs-on: ubuntu-latest
@@ -49,6 +46,6 @@ jobs:
       
       - name: Build and push docker image
         run: | 
-          docker build -t $DOCKER_REPOSITORY/hello world .
-          docker push $DOCKERHUB_REGISTRY/$DOCKERHUB_REPOSITORY
+          docker build . -t lorenzo1100/hello-world
+          docker push lorenzo1100/hello-world
         
