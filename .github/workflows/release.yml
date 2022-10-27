@@ -4,7 +4,7 @@ on: pull_request
 
 jobs: 
   jobs:
-  lint_node_application:
+    lint_node_application:
     runs-on: ubuntu-latest
 
     steps:
