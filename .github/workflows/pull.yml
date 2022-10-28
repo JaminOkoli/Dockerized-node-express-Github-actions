@@ -1,0 +1,17 @@
+name: Lint application
+
+on: pull_request
+
+jobs: 
+  lint_node_application:
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        npm install
+      
+    - name: Lint application
+      run: npm run lint
