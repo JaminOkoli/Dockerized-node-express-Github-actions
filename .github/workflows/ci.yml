@@ -9,7 +9,7 @@ env:
   DOCKERHUB_REPOSITORY: hello-world
 
 jobs:
-  lint_node_application:
+  lint_app:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       - name: Lint
         run: npm run lint
 
-  build_and_push_docker:
+  docker_build_push:
     runs-on: ubuntu-latest
 
     steps:
