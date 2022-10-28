@@ -6,12 +6,12 @@ jobs:
   lint_node_application:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Install Dependencies
-      run: |
-        npm install
-      
-    - name: Lint application
-      run: npm run lint
+      - name: Install Dependencies
+        run: |
+          npm install
+        
+      - name: Lint application
+        run: npm run lint
