@@ -1,10 +1,10 @@
 
-const home=function(req,res){
+const home = function (req, res) {
   res.render('home');
 }
 
- const login=function(req,res){ 
-    res.render('login');
+const login = function (req, res) {
+  res.render('login');
 }
 
-module.exports = {home, login}
+modules.exports = { home, login };
