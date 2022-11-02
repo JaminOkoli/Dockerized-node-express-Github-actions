@@ -1,7 +1,10 @@
-export const home=function(req,res){
+
+const home=function(req,res){
   res.render('home');
 }
 
-export const login=function(req,res){ 
+ const login=function(req,res){ 
     res.render('login');
 }
+
+module.exports = {home, login}

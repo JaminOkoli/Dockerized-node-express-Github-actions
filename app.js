@@ -2,13 +2,13 @@
 var express=require('express');
 var app=express();
 
-var routes=require('./routes/route.js');
+var {home} =require('./routes/route.js');
 
 app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/',routes.home);
+app.get('/', home);
 
 var port = process.env.PORT || 3000;
 
