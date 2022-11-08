@@ -7,4 +7,4 @@ const login = function (req, res) {
   res.render('login');
 }
 
-modules.exports = { home, login };
+module.exports = { home, login };
